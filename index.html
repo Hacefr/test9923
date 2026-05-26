@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom FNF Browser Engine</title>
+    <style>
+        body { margin: 0; background: #111; color: white; font-family: sans-serif; overflow: hidden; display: flex; }
+        #gameContainer { position: relative; width: 1280px; height: 720px; margin: auto; }
+        canvas { background: #222; border: 4px solid #333; display: block; }
+        .ui-panel { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.8); padding: 15px; border-radius: 8px; display: none; width: 300px; }
+        button { background: #ff007f; color: white; border: none; padding: 8px 12px; cursor: pointer; font-weight: bold; margin-top: 5px; }
+        button:hover { background: #ff3399; }
+        label { display: block; margin: 10px 0 5px; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div id="gameContainer">
+    <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+    <!-- Mod Maker UI Overlay -->
+    <div id="modMakerPanel" class="ui-panel">
+        <h3>🛠️ Mod Maker Tools</h3>
+        <label>Song BPM:</label>
+        <input type="number" id="bpmInput" value="150" min="60" max="300">
+        
+        <label>Load Instrumental (.mp3):</label>
+        <input type="file" id="audioUpload" accept="audio/*">
+        
+        <label>Load Character Sheet (.png):</label>
+        <input type="file" id="spriteUpload" accept="image/*">
+
+        <button id="exportChartBtn">💾 Export Chart JSON</button>
+        <p style="font-size:11px; color:#aaa; margin-top:10px;">Press <b>Tab</b> to toggle Editor. Click canvas to place notes in Editor mode.</p>
+    </div>
+</div>
+
+<script src="engine.js"></script>
+</body>
+</html>
